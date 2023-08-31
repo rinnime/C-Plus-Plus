@@ -1,0 +1,34 @@
+//Player 1 shooting function in game
+
+#include "Player1.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
+
+// ... Rest of the code ...
+
+// Called to bind functionality to input
+void APlayer1::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+{
+    Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+    // Bind axis mappings
+    PlayerInputComponent->BindAxis("MoveForward", this, &APlayer1::MoveForward);
+    PlayerInputComponent->BindAxis("MoveRight", this, &APlayer1::MoveRight);
+
+    // Bind jump action
+    PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &APlayer1::StartJump);
+    PlayerInputComponent->BindAction("Jump", IE_Released, this, &APlayer1::StopJump);
+
+    // Bind shoot action
+    PlayerInputComponent->BindAction("Shoot", IE_Pressed, this, &APlayer1::StartShooting);
+}
+
+// ... Rest of the code ...
+
+// Function to start shooting
+void APlayer1::StartShooting()
+{
+    // Implement your shooting logic here
+    // For example, spawn a projectile or perform ray tracing
+    // based on the player's camera direction and fire a shot.
+}
